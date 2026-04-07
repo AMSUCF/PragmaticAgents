@@ -29,3 +29,31 @@ And here I want to point to that recent essay on how LLMs work (see Mitchell, "O
 But this type of workflow, this kind of way of working with harnesses and local models, is starting to be more and more viable for different types of tasks. And that means that when people talk about AI as if it's all giant data centers and big companies and a bubble that's going to burst, I'm sorry, but they're just plain wrong. Because these harnesses and local models would still exist if the rest of it shut down tomorrow, and software and computational workflows would still never be the same again. It's also not going to shut down tomorrow. It's going to keep evolving, and the companies are actually just as interested in efficiency in many cases as those advocating for more efficient AI tools—because simply put, they're currently subsidizing big reasoning models through things like Anthropic's giant tools with Claude Opus and Claude Code at a level that is unsustainable. And that's okay, because as they stop subsidizing it, the way people work with these tools will change. Local models and smaller tools for tasks that don't require the big intensive workhorses of frontier models will be more normalized and more available, and people who are working on really complicated problems will continue to benefit from the fact that these are, in a way, an approach to work that is difficult to exhaust. They are persistent, and that persistence really shows through in areas like cybersecurity, but it can also benefit us in domains like the construction and maintenance of archives we have in the arts and humanities.
 
 The ability to use this as a cultural and computational interface—and in doing so, to make up for some of the drops in funding and the drops in what we can in fact support in labor. Using agentic tools to support our work. If you've ever had things you really wanted to build that, frankly, you don't have the time or resources to build—those rejected grants, those grants that are going nowhere in today's climate at institutions—these are ways to build the things you're dreaming about. And for me, it's become a way to unlock all those side projects and side quests that I had, frankly, almost given up on.
+
+
+add in:
+
+
+"Should we worry about AI hallucinations invisibly corrupting these digital constructions, and thus tainting the theses of these scholars? Because the researchers are not using these tools to formulate conclusions, and because their models maintain the original data so they, and anyone else, can spot-check them, this seems like much less of a concern than using AI further along in the scholarly process. Moreover, they are using these tools as part of a broader process of scholarship that still involves traditional methods such as the close reading of texts. They understand the need to construct an interconnected web of evidence for their articles and books, just as they did before. In this wider context, vibe coding and diligent analysis can coexist"
+
+Dan Cohen, Vibe Analysis - https://newsletter.dancohen.org/archive/vibe-analysis/
+
+
+Jason Heppler, Vibing Digital History - https://jasonheppler.org/2026/03/09/vibing-digital-history/
+
+Sebastian Raschka, Components of a Coding Agent -
+https://magazine.sebastianraschka.com/p/components-of-a-coding-agent
+
+Lincoln Mullen, Behind, Ahead
+https://lincolnmullen.com/blog/behind-ahead/
+
+Ethan Mollick, The IT Department  Where AI Goes to Die
+"What is hard, and requires genuine imagination, is asking a different question: what does it mean to rebuild an organisation around the fact that a single programmer can now write a hundred times more code? What new products become possible? What new markets open up? No vendor can answer those questions for you. No consultant has a playbook (much as they might claim they do). The hard strategic work of reimagining what your organisation could become is precisely the work that de-weirding AI allows companies to avoid."
+
+Ethan Mollick, Claude Dispatch and the Power of Interfaces
+https://www.oneusefulthing.org/p/claude-dispatch-and-the-power-of
+"AIs are already far more capable than most people realize. A large part of this so-called capability overhang comes not from the limits of AI (though, of course, they still have many limits), but from how people interact with it. The vast majority of people access AI through chatbots, and usually the free versions with less capable models. A chatbot is fine for a quick question, but it is a bad way to get real work done."
+
+Mr. Chatterbox, or, The Modern Prometheus
+https://www.estragon.news/mr-chatterbox-or-the-modern-prometheus/
+"I became intrigued by an idea: what if I were to train a transformer model exclusively on Victorian literature, creating what would be, in essence, a Victorian gentleman in silicon? I didn't want to fine-tune an existing chatbot. I wanted it to be truly Victorian from first-principles. The vocabulary and worldview would be encoded from Victorian literature at the deepest level. With my aforementioned tools [Claude Code], building this chatbot was well within my reach. It would be easy!"
