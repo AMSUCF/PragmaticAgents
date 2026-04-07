@@ -1,0 +1,23 @@
+"Should we worry about AI hallucinations invisibly corrupting these digital constructions, and thus tainting the theses of these scholars? Because the researchers are not using these tools to formulate conclusions, and because their models maintain the original data so they, and anyone else, can spot-check them, this seems like much less of a concern than using AI further along in the scholarly process. Moreover, they are using these tools as part of a broader process of scholarship that still involves traditional methods such as the close reading of texts. They understand the need to construct an interconnected web of evidence for their articles and books, just as they did before. In this wider context, vibe coding and diligent analysis can coexist"
+
+Dan Cohen, Vibe Analysis - https://newsletter.dancohen.org/archive/vibe-analysis/
+
+
+Jason Heppler, Vibing Digital History - https://jasonheppler.org/2026/03/09/vibing-digital-history/
+
+Sebastian Raschka, Components of a Coding Agent -
+https://magazine.sebastianraschka.com/p/components-of-a-coding-agent
+
+Lincoln Mullen, Behind, Ahead
+https://lincolnmullen.com/blog/behind-ahead/
+
+Ethan Mollick, The IT Department  Where AI Goes to Die
+"What is hard, and requires genuine imagination, is asking a different question: what does it mean to rebuild an organisation around the fact that a single programmer can now write a hundred times more code? What new products become possible? What new markets open up? No vendor can answer those questions for you. No consultant has a playbook (much as they might claim they do). The hard strategic work of reimagining what your organisation could become is precisely the work that de-weirding AI allows companies to avoid."
+
+Ethan Mollick, Claude Dispatch and the Power of Interfaces
+https://www.oneusefulthing.org/p/claude-dispatch-and-the-power-of
+"AIs are already far more capable than most people realize. A large part of this so-called capability overhang comes not from the limits of AI (though, of course, they still have many limits), but from how people interact with it. The vast majority of people access AI through chatbots, and usually the free versions with less capable models. A chatbot is fine for a quick question, but it is a bad way to get real work done."
+
+Mr. Chatterbox, or, The Modern Prometheus
+https://www.estragon.news/mr-chatterbox-or-the-modern-prometheus/
+"I became intrigued by an idea: what if I were to train a transformer model exclusively on Victorian literature, creating what would be, in essence, a Victorian gentleman in silicon? I didn't want to fine-tune an existing chatbot. I wanted it to be truly Victorian from first-principles. The vocabulary and worldview would be encoded from Victorian literature at the deepest level. With my aforementioned tools [Claude Code], building this chatbot was well within my reach. It would be easy!"
