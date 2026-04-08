@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pragmatic Agentic AI in Digital Humanities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Starfield background -->
+  <div class="starfield">
+    <div class="layer layer-1"></div>
+    <div class="layer layer-2"></div>
+    <div class="layer layer-3"></div>
+  </div>
+
+  <!-- Console (landing page) -->
+  <div class="console" id="console">
+    <h1 class="console-title">PRAGMATIC AGENTIC AI IN DIGITAL HUMANITIES</h1>
+    <p class="console-subtitle">A guided tour through agentic tools for humanities scholars</p>
+    <ul class="console-menu">
+      <li data-action="start"><span class="menu-arrow">&#9654;</span> START</li>
+      <li data-action="modal" data-target="level1"><span class="menu-arrow">&#9654;</span> LEVEL 1: COWORK</li>
+      <li data-action="modal" data-target="level2"><span class="menu-arrow">&#9654;</span> LEVEL 2: CLAUDE CODE CLI</li>
+      <li data-action="modal" data-target="level3"><span class="menu-arrow">&#9654;</span> LEVEL 3: OLLAMA</li>
+      <li data-action="modal" data-target="reading"><span class="menu-arrow">&#9654;</span> FURTHER READING</li>
+    </ul>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow" id="slideshow">
+    <button class="slideshow-return" id="returnToConsole">RETURN TO CONSOLE</button>
+    <div class="slide-loader" id="slideLoader">
+      <div class="slide-loader-bar"><div class="slide-loader-fill"></div></div>
+      <div class="slide-loader-text">LOADING...</div>
+    </div>
+
+    <!-- Slide 1: Math Blaster metaphor -->
+    <div class="slide" data-slide="1">
+      <h2>THE MATH BLASTER PROBLEM</h2>
+      <p>I find myself thinking about a visual metaphor based on Math Blaster. The chatbot interface reminds me of many well-intentioned experiments in edutainment&mdash;or what Brenda Laurel memorably called &ldquo;chocolate-covered broccoli.&rdquo; Math Blaster was a well-designed interactive worksheet as a game&mdash;gamification rather than meaningful play. There was no actual correlation between the math and the game mechanics. Similarly, the chatbot is being deployed as a one-size-fits-all educational tool, and it&rsquo;s most likely just going to reduce it. The chatbot reduces friction to an outcome and encourages reductive production.</p>
+    </div>
+
+    <!-- Slide 2: AI slop -->
+    <div class="slide" data-slide="2">
+      <h2>AI SLOP AND INTENTIONALITY</h2>
+      <p>AI slop is something that &ldquo;requires less effort to produce than it does to consume.&rdquo; This is why so many of us are frustrated with chatbots writing essays. But it&rsquo;s possible to use AI in a way that is labor-intensive, requires expertise, and produces weird, interesting, compelling results. A chatbot won&rsquo;t get you there&mdash;the chatbot interface isn&rsquo;t designed for sustained intentionality. It&rsquo;s designed for rapid results, not unlike gamification or early edutainment. It is designed to keep you on the system, even if the outcomes are not that great.</p>
+    </div>
+
+    <!-- Slide 3: Agentic tools vs chatbots -->
+    <div class="slide" data-slide="3">
+      <h2>AGENTIC TOOLS REQUIRE EXPERTISE</h2>
+      <p>Agentic tools require expertise. They reward and extend it. There is something about how agentic tools work as an extension of ourselves that&rsquo;s very different from what a chatbot offers. When we bring AI into the classroom as a technology that offers quick, easy replacement instead of tools that require intentionality, thoughtful design, and can lead to meaningful, creative, and research outputs&mdash;it&rsquo;s thoroughly depressing. I would almost reverse what&rsquo;s on the &ldquo;AI for All&rdquo; red list.</p>
+    </div>
+
+    <!-- Slide 4: The red list problem -->
+    <div class="slide" data-slide="4">
+      <h2>THE RED LIST PROBLEM</h2>
+      <p>The tool I use all the time, Claude Code, does not even appear on UCF&rsquo;s list&mdash;an interesting omission given that it is a highly in-demand tool at UCF. Meanwhile, using a chatbot like Grok is more likely to lead to glib responses and reductiveness, particularly given the political nature of the platform. Both Cowork and Code demand that you provide significant context. They thrive on knowledge input, guidance, and management.</p>
+      <img src="materials/mollick-deskilling-deliberate-choices.png" alt="Ethan Mollick post about technology deskilling and deliberate choices about which skills to keep">
+    </div>
+
+    <!-- Slide 5: Cowork and Code demand expertise -->
+    <div class="slide" data-slide="5">
+      <h2>EXPERTISE SHAPES AGENTIC OUTPUT</h2>
+      <p>Minas Karamanis draws a sharp distinction between an expert building a research project with Claude Code and a grad student using it as a shortcut&mdash;the paper looks identical but the scientist doesn&rsquo;t. Agentic outputs genuinely reflect expertise, whereas chatbot outputs reflect training data and a little bit of prompt literacy. There&rsquo;s very little literacy to build with a chatbot, except perhaps recognizing how easily manipulated we are by them.</p>
+      <img src="materials/mollick-tireless-computer-people-quote.png" alt="Ethan Mollick post about tireless computer people completing tasks in 15 minutes">
+    </div>
+
+    <!-- Slide 6: IT resistance and weird tools -->
+    <div class="slide" data-slide="6">
+      <h2>IT RESISTANCE AND WEIRD TOOLS</h2>
+      <p>Agentic tools have mostly been designed for software developers. They&rsquo;re intimidating, and they&rsquo;re being resisted by IT&mdash;which Ethan Mollick writes about as one of the biggest problems with AI right now: that our usage is being decided by a department worried about risk aversion. We&rsquo;re talking about weird tools with serious potential to augment creativity and research that cannot be so easily regulated or defined.</p>
+      <img src="materials/underwood-behind-ahead-blog-post.png" alt="Lincoln Mullen's 'Behind, ahead' blog post about discovering agentic coding">
+    </div>
+
+    <!-- Slide 7: Mr. Chatterbox -->
+    <div class="slide" data-slide="7">
+      <h2>MR. CHATTERBOX</h2>
+      <p>Mr. Chatterbox is a language model trained entirely from scratch on over 28,000 Victorian-era British texts from the British Library&mdash;built using Claude Code as a tool. The resulting output is not Claude. It&rsquo;s not a frontier model. It can be brought into a classroom without any data risks. Students can build things like this for themselves. Wouldn&rsquo;t we rather have students who are makers and creators than passive consumers of a chatbot&rsquo;s output?</p>
+      <img src="materials/chatterbox-victorian-chat-roleplay.png" alt="Mr. Chatterbox Victorian chatbot roleplay conversation">
+    </div>
+
+    <!-- Slide 8: How LLMs actually work -->
+    <div class="slide" data-slide="8">
+      <h2>HOW LLMS ACTUALLY WORK</h2>
+      <p>There are three components to what happens when we work with an agentic tool. The lowest level is the LLM itself. Then there&rsquo;s the reasoning layer on top. Then the harness&mdash;Claude Code is a harness, and I can use it with models that are not Claude. This type of workflow with harnesses and local models is starting to be more and more viable. When people talk about AI as if it&rsquo;s all giant data centers and a bubble that&rsquo;s going to burst&mdash;they&rsquo;re just plain wrong. These harnesses and local models would still exist if the rest shut down tomorrow.</p>
+      <img src="materials/underwood-put-web-after-model-quote.png" alt="Ted Underwood post comparing AI disclosure to putting 'Web' after internet citations">
+    </div>
+
+    <!-- Slide 9: Why experiment now -->
+    <div class="slide" data-slide="9">
+      <h2>WHY EXPERIMENT NOW</h2>
+      <p>The ability to use agentic tools as a cultural and computational interface&mdash;to make up for drops in funding and labor. If you&rsquo;ve ever had things you really wanted to build that you don&rsquo;t have the time or resources for&mdash;those rejected grants, those grants going nowhere in today&rsquo;s climate&mdash;these are ways to build the things you&rsquo;re dreaming about. For me, it&rsquo;s become a way to unlock all those side projects I had almost given up on.</p>
+      <img src="materials/claude-bankhead-jones-grasslands-map.png" alt="Map of Bankhead-Jones grasslands generated with Claude, demonstrating agentic research tools">
+    </div>
+
+    <!-- Slide 10: Vibe analysis (Dan Cohen quote) -->
+    <div class="slide" data-slide="10">
+      <h2>VIBE ANALYSIS</h2>
+      <p>&ldquo;Should we worry about AI hallucinations invisibly corrupting these digital constructions? Because the researchers are not using these tools to formulate conclusions, and because their models maintain the original data so they, and anyone else, can spot-check them, this seems like much less of a concern than using AI further along in the scholarly process. In this wider context, vibe coding and diligent analysis can coexist.&rdquo; &mdash;Dan Cohen, &ldquo;Vibe Analysis&rdquo;</p>
+      <img src="materials/underwood-public-interest-ai-thread.png" alt="Ted Underwood thread about public interest AI development">
+    </div>
+
+    <!-- Nav controls -->
+    <div class="slide-nav slide-nav-left">
+      <button id="prevSlide">&#9664; PREV</button>
+    </div>
+    <div class="slide-nav slide-nav-right">
+      <button id="nextSlide">NEXT &#9654;</button>
+    </div>
+    <div class="slide-counter" id="slideCounter"></div>
+  </div>
+
+  <!-- Level 1 Modal: Cowork -->
+  <div class="modal-backdrop" id="level1">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" data-close>ESC</button>
+      <h2 class="modal-title">LEVEL 1: COWORK</h2>
+      <a href="https://claude.ai" target="_blank" rel="noopener" class="getting-started">&#9733; GETTING STARTED: CLAUDE.AI</a>
+      <div class="video-item">
+        <div class="video-label">REVISION PLANNING</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/fIAvgI2FxZA" title="Revision Planning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-label">COMPLETING DOCUMENTATION</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/276aI267V7U" title="Completing Documentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-label">WEB RESEARCH AND TOOLS</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/8iTH_-pgS_Q" title="Web Research and Tools" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 2 Modal: Claude Code CLI -->
+  <div class="modal-backdrop" id="level2">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" data-close>ESC</button>
+      <h2 class="modal-title">LEVEL 2: CLAUDE CODE CLI</h2>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener" class="getting-started">&#9733; GETTING STARTED: INSTALL CLAUDE CODE</a>
+      <div class="video-item">
+        <div class="video-label">LOCAL TRANSCRIPTION</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/XywaSW94IQ4" title="Local Transcription" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <a href="https://github.com/AMSUCF/InterdisciplinaryTeaching/blob/main/README.md" target="_blank" rel="noopener" class="game-item">&#9733; WEBCOURSES CONTENT &mdash; View on GitHub</a>
+      <div class="game-item game-item-locked">&#9744; BUILDING PRESENTATIONS &mdash; COMING SOON</div>
+    </div>
+  </div>
+
+  <!-- Level 3 Modal: Ollama -->
+  <div class="modal-backdrop" id="level3">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" data-close>ESC</button>
+      <h2 class="modal-title">LEVEL 3: OLLAMA</h2>
+      <a href="https://ollama.com" target="_blank" rel="noopener" class="getting-started">&#9733; GETTING STARTED: OLLAMA.COM</a>
+      <a href="https://ollama.com/library/devstral-small" target="_blank" rel="noopener" class="getting-started" style="margin-left: 0.5rem;">&#9733; MODEL: DEVSTRAL SMALL 2</a>
+      <div class="video-item">
+        <div class="video-label">WORKING WITH LOCAL MODELS</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/37XWlkI-Uyo" title="Working with Local Models" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Further Reading Modal -->
+  <div class="modal-backdrop" id="reading">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" data-close>ESC</button>
+      <h2 class="modal-title">FURTHER READING</h2>
+
+      <div class="reading-section">
+        <h3>WORKS CITED</h3>
+        <ul class="reading-list">
+          <li>Bai et al., &ldquo;The Levers of Political Persuasion with Conversational Artificial Intelligence,&rdquo; <em>Science</em>, 2025</li>
+          <li>Bender et al., <a href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank" rel="noopener">&ldquo;On the Dangers of Stochastic Parrots,&rdquo;</a> <em>FAccT</em>, 2021</li>
+          <li>Furze, &ldquo;The Effort Economy of Slop&rdquo;</li>
+          <li>Gerlich, &ldquo;AI Tools in Society: Impacts on Cognitive Offloading and the Future of Critical Thinking,&rdquo; <em>Societies</em> 15.1, 2025</li>
+          <li>Karamanis, &ldquo;The Machines Are Fine. I&rsquo;m Worried About Us,&rdquo; <em>ergosphere.blog</em>, 2026</li>
+          <li>Laurel, <em>Utopian Entrepreneur</em>, 2001</li>
+          <li>McLuhan, <em>Understanding Media</em>, 1964</li>
+          <li>Mitchell, &ldquo;On Evaluating Cognitive Capabilities in Machines,&rdquo; <em>AI: A Guide for Thinking Humans</em>, 2026</li>
+          <li>Mollick, <a href="https://www.oneusefulthing.org/" target="_blank" rel="noopener">&ldquo;Management as AI Superpower,&rdquo;</a> <em>One Useful Thing</em></li>
+          <li>Mollick, <a href="https://www.oneusefulthing.org/" target="_blank" rel="noopener">&ldquo;The IT Department: Where AI Goes to Die,&rdquo;</a> <em>One Useful Thing</em></li>
+          <li>Venturella, &ldquo;Mr. Chatterbox,&rdquo; 2026</li>
+          <li>Vincent, &ldquo;Superpowers: How I&rsquo;m Using Coding Agents,&rdquo; 2025</li>
+        </ul>
+      </div>
+
+      <div class="reading-section">
+        <h3>FURTHER READING</h3>
+        <ul class="reading-list">
+          <li><a href="https://newsletter.dancohen.org/archive/vibe-analysis/" target="_blank" rel="noopener">Cohen, &ldquo;Vibe Analysis&rdquo;</a></li>
+          <li><a href="https://jasonheppler.org/2026/03/09/vibing-digital-history/" target="_blank" rel="noopener">Heppler, &ldquo;Vibing Digital History&rdquo;</a></li>
+          <li><a href="https://www.oneusefulthing.org/p/claude-dispatch-and-the-power-of" target="_blank" rel="noopener">Mollick, &ldquo;Claude Dispatch and the Power of Interfaces&rdquo;</a></li>
+          <li><a href="https://lincolnmullen.com/blog/behind-ahead/" target="_blank" rel="noopener">Mullen, &ldquo;Behind, Ahead&rdquo;</a></li>
+          <li><a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent" target="_blank" rel="noopener">Raschka, &ldquo;Components of a Coding Agent&rdquo;</a></li>
+          <li><a href="https://www.estragon.news/mr-chatterbox-or-the-modern-prometheus/" target="_blank" rel="noopener">Venturella, &ldquo;Mr. Chatterbox, or, The Modern Prometheus&rdquo;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
