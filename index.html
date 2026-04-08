@@ -5,22 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pragmatic Agentic AI in Digital Humanities</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
 </head>
 <body>
 
-  <!-- Starfield background -->
-  <div class="starfield">
-    <div class="layer layer-1"></div>
-    <div class="layer layer-2"></div>
-    <div class="layer layer-3"></div>
-  </div>
+  <!-- p5.js background canvas -->
+  <div id="bg-canvas"></div>
 
   <!-- Console (landing page) -->
   <div class="console" id="console">
     <h1 class="console-title">PRAGMATIC AGENTIC AI IN DIGITAL HUMANITIES</h1>
     <p class="console-subtitle">A guided tour through agentic tools for humanities scholars</p>
     <ul class="console-menu">
-      <li data-action="start"><span class="menu-arrow">&#9654;</span> START</li>
+      <li data-action="start"><span class="menu-arrow">&#9654;</span> BACKSTORY</li>
       <li data-action="modal" data-target="level1"><span class="menu-arrow">&#9654;</span> LEVEL 1: COWORK</li>
       <li data-action="modal" data-target="level2"><span class="menu-arrow">&#9654;</span> LEVEL 2: CLAUDE CODE CLI</li>
       <li data-action="modal" data-target="level3"><span class="menu-arrow">&#9654;</span> LEVEL 3: OLLAMA</li>
@@ -163,7 +160,12 @@
         </div>
       </div>
       <a href="https://github.com/AMSUCF/InterdisciplinaryTeaching/blob/main/README.md" target="_blank" rel="noopener" class="game-item">&#9733; WEBCOURSES CONTENT &mdash; View on GitHub</a>
-      <div class="game-item game-item-locked">&#9744; BUILDING PRESENTATIONS &mdash; COMING SOON</div>
+      <div class="video-item">
+        <div class="video-label">BUILDING PRESENTATIONS</div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/suh9Hg9c1Tk" title="Building Presentations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -221,6 +223,7 @@
     </div>
   </div>
 
+  <script src="background.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

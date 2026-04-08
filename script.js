@@ -66,6 +66,7 @@ function startSlideshow() {
   currentSlide = 0;
   slideshow.classList.add('active');
   document.getElementById('console').style.display = 'none';
+  if (typeof setBgMode === 'function') setBgMode('slideshow');
   showSlide(0);
 }
 
@@ -74,6 +75,7 @@ function exitSlideshow() {
   slideshow.classList.remove('active');
   document.getElementById('console').style.display = '';
   slideshow.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  if (typeof setBgMode === 'function') setBgMode('console');
 }
 
 function showSlide(index) {
