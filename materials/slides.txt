@@ -2,17 +2,21 @@ Overall structure:
 
 Math Blaster inspired landing page, "Pragmatic Agentic AI in Digital Humanities" w/ links to each section.
 
-Section one: merge the cleaned transcript (preserve all quotes as-is and my wording as much as feasible, but shorten) with the images in materials to create the "game intro" section, which should act as a set of slides controlled by arrow keys and move through that overview, then return to the landing page
+Section one: merge the cleaned transcript (preserve all quotes as-is and my wording as much as feasible, but shorten) with the images in materials to create the "game intro" section, which should act as a set of slides controlled by arrow keys and move through that overview, then return to the landing page. 
 
 Level One: Cowork
-(will have links to videos to be full-screened, added later)
+- CoworkChapter (https://youtu.be/fIAvgI2FxZA)
+- CoworkFAR (https://youtu.be/276aI267V7U)
+- CoworkAIResearch (https://youtu.be/8iTH_-pgS_Q)
 
 Level Two: Claude Code CLI
-(same thing)
+- CodeTranscription (https://youtu.be/XywaSW94IQ4)
+- CodeWebcourses (placeholder, video coming)
+- CodePresentation (placeholder, video coming)
 
 Level Three: Ollama
-(same thing)
+- LocalCode (https://youtu.be/37XWlkI-Uyo)
 
 Further Reading
-(all the sources from transcript)
+(sources from transcript)
 
