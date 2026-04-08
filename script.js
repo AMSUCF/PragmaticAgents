@@ -13,8 +13,12 @@
     video.src = localSrc;
     video.controls = true;
     video.preload = 'metadata';
+    video.style.position = 'absolute';
+    video.style.top = '0';
+    video.style.left = '0';
     video.style.width = '100%';
     video.style.height = '100%';
+    video.style.border = '1px solid rgba(0, 255, 136, 0.3)';
     iframe.replaceWith(video);
   });
 })();
