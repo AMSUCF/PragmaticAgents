@@ -341,11 +341,13 @@ html, body {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: 800px;
-  width: 90%;
-  padding: 2rem;
+  justify-content: flex-start;
+  max-width: 1000px;
+  width: 95%;
+  padding: 3.5rem 2rem 4rem;
   text-align: left;
+  height: calc(100vh - 2rem);
+  overflow: hidden;
 }
 
 .slide.active {
@@ -354,17 +356,20 @@ html, body {
 
 .slide-text {
   font-family: var(--font-body);
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-  line-height: 1.6;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  line-height: 1.5;
   color: var(--text-white);
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   opacity: 0.9;
   order: 2;
+  flex-shrink: 0;
 }
 
 .slide-image {
   max-width: 100%;
-  max-height: 55vh;
+  flex: 1 1 auto;
+  min-height: 0;
+  object-fit: contain;
   border: 1px solid rgba(0, 255, 136, 0.3);
   order: 1;
   /* Scanline reveal animation applied via JS */
