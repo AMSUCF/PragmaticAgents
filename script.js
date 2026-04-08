@@ -133,17 +133,33 @@ function animateSlide(slide) {
   const textEl = slide.querySelector('.slide-text');
   const imgEl = slide.querySelector('.slide-image');
 
-  // Reset image state
+  // Reset states
   if (imgEl) {
     imgEl.classList.remove('revealed');
   }
-
   if (textEl) {
-    typewriterEffect(textEl, () => {
-      if (imgEl) {
-        imgEl.offsetHeight;
-        imgEl.classList.add('revealed');
+    // Hide text until image is done
+    textEl.style.opacity = '0';
+  }
+
+  // Image reveals first, then text types in after
+  if (imgEl) {
+    imgEl.offsetHeight;
+    imgEl.classList.add('revealed');
+    // Wait for scanReveal animation (1s) then start typewriter
+    setTimeout(() => {
+      if (textEl) {
+        textEl.style.opacity = '';
+        typewriterEffect(textEl, () => {
+          isAnimating = false;
+        });
+      } else {
+        isAnimating = false;
       }
+    }, 1000);
+  } else if (textEl) {
+    textEl.style.opacity = '';
+    typewriterEffect(textEl, () => {
       isAnimating = false;
     });
   } else {
