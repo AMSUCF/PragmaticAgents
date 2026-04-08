@@ -1,1 +1,6 @@
 .superpowers/
+
+# TranscriptionTool - sample data and local model cache
+TranscriptionTool/recordings/
+TranscriptionTool/transcripts/
+TranscriptionTool/__pycache__/

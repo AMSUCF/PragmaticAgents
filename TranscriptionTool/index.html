@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcription Tool - Project Overview</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body style="overflow: auto;">
+
+  <div style="position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 2rem;">
+
+    <a href="../index.html" style="font-family: var(--font-pixel); font-size: 0.5rem; color: var(--accent-cyan); text-decoration: none; border: 1px solid var(--accent-cyan); padding: 0.4rem 0.8rem; display: inline-block; margin-bottom: 2rem; transition: all 0.3s;"
+       onmouseover="this.style.color='#fff'; this.style.borderColor='#fff';"
+       onmouseout="this.style.color=''; this.style.borderColor='';">&#9664; RETURN TO CONSOLE</a>
+
+    <h1 style="font-family: var(--font-pixel); font-size: clamp(0.6rem, 1.5vw, 0.9rem); color: var(--accent-green); text-shadow: 0 0 10px var(--accent-green); margin-bottom: 1.5rem;">TRANSCRIPTION TOOL</h1>
+
+    <p style="color: var(--accent-cyan); font-size: 0.85rem; margin-bottom: 2rem;">A desktop application built with Claude Code that records audio and transcribes it locally using OpenAI's Whisper model &mdash; no cloud API required.</p>
+
+    <div class="reading-section">
+      <h3>HOW IT WORKS</h3>
+      <div style="border: 1px solid rgba(0, 255, 136, 0.3); padding: 1.5rem; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.85rem; line-height: 1.7; margin-bottom: 1rem;">The tool captures microphone audio through a tkinter GUI, saves recordings as WAV files, and runs them through a local Whisper speech-recognition model for transcription. Everything runs on your machine &mdash; no data leaves your desktop.</p>
+        <p style="font-size: 0.85rem; line-height: 1.7;">The application is structured as four Python modules that separate concerns cleanly:</p>
+      </div>
+    </div>
+
+    <div class="reading-section">
+      <h3>ARCHITECTURE</h3>
+      <ul class="reading-list">
+        <li><strong style="color: var(--accent-green);">main.py</strong> &mdash; Entry point. Wires together the recorder, transcriber, and UI, then launches the application window.</li>
+        <li><strong style="color: var(--accent-green);">recorder.py</strong> &mdash; Audio capture using <code style="color: var(--accent-cyan);">sounddevice</code>. Manages a state machine (idle/recording/paused), streams microphone input into memory, and writes timestamped WAV files via <code style="color: var(--accent-cyan);">scipy</code>.</li>
+        <li><strong style="color: var(--accent-green);">transcriber.py</strong> &mdash; Loads the <code style="color: var(--accent-cyan);">openai/whisper-base</code> model through Hugging Face Transformers on first use. Converts int16 audio to float32, runs the speech-recognition pipeline, and saves transcripts as text files.</li>
+        <li><strong style="color: var(--accent-green);">ui.py</strong> &mdash; A tkinter interface with Record, Pause, and Stop buttons and a scrollable transcript display. Runs transcription in a background thread to keep the UI responsive.</li>
+        <li><strong style="color: var(--accent-green);">config.py</strong> &mdash; Central settings: sample rate (16kHz), model name, and output directories for recordings and transcripts.</li>
+      </ul>
+    </div>
+
+    <div class="reading-section">
+      <h3>DEPENDENCIES</h3>
+      <ul class="reading-list">
+        <li><code style="color: var(--accent-cyan);">sounddevice</code> &mdash; cross-platform audio I/O</li>
+        <li><code style="color: var(--accent-cyan);">transformers</code> + <code style="color: var(--accent-cyan);">torch</code> &mdash; Hugging Face pipeline and PyTorch backend for Whisper</li>
+        <li><code style="color: var(--accent-cyan);">scipy</code> + <code style="color: var(--accent-cyan);">numpy</code> &mdash; WAV file I/O and audio array processing</li>
+        <li><code style="color: var(--accent-cyan);">tkinter</code> &mdash; GUI framework (included with Python)</li>
+      </ul>
+    </div>
+
+    <div class="reading-section">
+      <h3>RUNNING IT</h3>
+      <div style="border: 1px solid rgba(0, 255, 136, 0.3); padding: 1.5rem; font-size: 0.85rem; line-height: 1.7;">
+        <code style="color: var(--accent-green); display: block; margin-bottom: 0.5rem;">pip install -r requirements.txt</code>
+        <code style="color: var(--accent-green); display: block; margin-bottom: 1rem;">python main.py</code>
+        <p>The Whisper model downloads automatically on first run (~150 MB). Recordings are saved to <code style="color: var(--accent-cyan);">recordings/</code> and transcripts to <code style="color: var(--accent-cyan);">transcripts/</code>.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~*~ AGENTIC AI @ UNIVERSITIES ~*~ The ENCYCLOPAEDIA ~*~</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #090A0F;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 40% 60%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(2px 2px at 55% 10%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 25% 90%, rgba(255,255,255,0.5), transparent);
+  background-size: 200% 200%;
+  animation: starTwinkle 4s ease-in-out infinite;
+  color: #e0e0e0;
+  font-family: 'Verdana', 'Geneva', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 5% 5%; }
+}
+
+/* === LAYOUT === */
+.page-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* === HEADER === */
+.site-header {
+  text-align: center;
+  padding: 25px 20px 15px;
+  background: linear-gradient(180deg, #000033 0%, #000066 40%, #000033 100%);
+  border: 4px ridge #3366ff;
+  margin-bottom: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,100,255,0.03) 2px,
+    rgba(0,100,255,0.03) 4px
+  );
+  pointer-events: none;
+}
+
+.site-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(14px, 3vw, 28px);
+  background: linear-gradient(90deg, #ff0000 0%, #ff7f00 16.67%, #ffff00 33.33%, #00ff00 50%, #0000ff 66.67%, #4b0082 83.33%, #9400d3 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 3s linear infinite;
+  margin-bottom: 8px;
+}
+
+@keyframes rainbowShift { to { background-position: 200% center; } }
+
+.site-subtitle {
+  font-family: 'VT323', monospace;
+  font-size: clamp(16px, 2.5vw, 24px);
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.marquee-bar {
+  overflow: hidden;
+  background: #000;
+  border: 2px solid #00ff00;
+  padding: 6px 0;
+  margin-top: 10px;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+@keyframes marquee {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100%); }
+}
+
+/* === NAVIGATION === */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 4px;
+  background: #333;
+  border: 3px ridge #666;
+  padding: 6px;
+}
+
+.nav-tab {
+  flex: 1 1 auto;
+  min-width: 140px;
+  padding: 10px 16px;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(180deg, #444 0%, #222 100%);
+  border: 2px outset #666;
+  color: #aaa;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.nav-tab:hover {
+  background: linear-gradient(180deg, #555 0%, #333 100%);
+  color: #fff;
+}
+
+.nav-tab.active {
+  background: linear-gradient(180deg, #003366 0%, #001133 100%);
+  border: 2px inset #3366ff;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.nav-tab .tab-count {
+  font-size: 13px;
+  color: #ffcc00;
+  display: block;
+  margin-top: 2px;
+}
+
+/* === CONTROLS BAR === */
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  border: 3px ridge #334;
+  margin-bottom: 4px;
+}
+
+.controls-bar label {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #ffcc00;
+  text-shadow: 0 0 4px rgba(255,204,0,0.3);
+}
+
+.search-box {
+  flex: 1 1 200px;
+  padding: 8px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  background: #000;
+  color: #00ff00;
+  border: 2px inset #00aa00;
+  outline: none;
+  text-shadow: 0 0 4px rgba(0,255,0,0.3);
+}
+
+.search-box::placeholder { color: #006600; }
+.search-box:focus { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.3); }
+
+.filter-select {
+  padding: 8px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background: #111;
+  color: #00ffcc;
+  border: 2px inset #006666;
+  outline: none;
+}
+
+.result-count {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #ff6600;
+  text-shadow: 0 0 6px rgba(255,102,0,0.4);
+  margin-left: auto;
+}
+
+/* === TABLE PANEL === */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 3px ridge #334;
+  background: #0a0a1a;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, #1a0033 0%, #0d001a 100%);
+  color: #ffcc00;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 2px solid #6633ff;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+thead th:hover {
+  background: linear-gradient(180deg, #2a0055 0%, #1a0033 100%);
+  color: #ffff00;
+}
+
+thead th .sort-arrow {
+  font-size: 12px;
+  margin-left: 4px;
+  opacity: 0.4;
+}
+
+thead th.sorted-asc .sort-arrow,
+thead th.sorted-desc .sort-arrow { opacity: 1; color: #00ffff; }
+
+tbody tr {
+  border-bottom: 1px solid #1a1a33;
+  transition: background 0.1s;
+}
+
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+tbody tr:hover { background: rgba(0,100,255,0.1); }
+
+tbody td {
+  padding: 8px 12px;
+  vertical-align: top;
+  color: #ccc;
+  max-width: 350px;
+}
+
+tbody td.cell-category {
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  color: #ff99ff;
+  white-space: nowrap;
+}
+
+tbody td.cell-url a {
+  color: #00ccff;
+  text-decoration: none;
+  word-break: break-all;
+  font-size: 12px;
+}
+
+tbody td.cell-url a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 6px rgba(0,255,255,0.5);
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.badge-open {
+  background: #003300;
+  color: #00ff00;
+  border: 1px solid #00aa00;
+  text-shadow: 0 0 4px rgba(0,255,0,0.4);
+}
+
+.badge-proprietary {
+  background: #330000;
+  color: #ff6666;
+  border: 1px solid #aa0000;
+}
+
+.badge-mixed {
+  background: #333300;
+  color: #ffcc00;
+  border: 1px solid #aa8800;
+}
+
+.badge-yes {
+  background: #002233;
+  color: #00ccff;
+  border: 1px solid #0088aa;
+}
+
+.badge-no {
+  color: #666;
+  font-size: 12px;
+}
+
+/* === FOOTER === */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 4px;
+  background: linear-gradient(180deg, #000033 0%, #000011 100%);
+  border: 3px ridge #333;
+  font-family: 'VT323', monospace;
+}
+
+.hit-counter-wrap {
+  margin: 12px 0;
+}
+
+.hit-counter {
+  display: inline-flex;
+  gap: 2px;
+  padding: 8px 12px;
+  background: #000;
+  border: 3px ridge #666;
+  box-shadow: inset 0 0 10px rgba(0,255,0,0.2);
+}
+
+.counter-digit {
+  width: 20px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #003300 0%, #001100 100%);
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ff00;
+}
+
+.footer-links {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.footer-links a {
+  color: #6666ff;
+  text-decoration: none;
+}
+
+.footer-links a:hover { color: #9999ff; text-decoration: underline; }
+
+.construction-banner {
+  display: inline-block;
+  padding: 4px 16px;
+  background: repeating-linear-gradient(45deg, #ffcc00, #ffcc00 10px, #000 10px, #000 20px);
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px solid #ff0000;
+  margin-top: 10px;
+  animation: blink 2s step-start infinite;
+}
+
+@keyframes blink { 50% { opacity: 0.6; } }
+
+/* === NO RESULTS === */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  color: #ff6600;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .main-nav { flex-direction: column; }
+  .nav-tab { min-width: auto; }
+  .controls-bar { flex-direction: column; align-items: stretch; }
+  .result-count { margin-left: 0; text-align: center; }
+  tbody td { font-size: 12px; padding: 6px 8px; }
+  thead th { font-size: 14px; padding: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Cursor trail */
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: trailFade 0.4s ease-out forwards;
+}
+@keyframes trailFade { to { opacity: 0; transform: scale(2.5); } }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-title">AGENTIC AI @ U.S. UNIVERSITIES</div>
+    <div class="site-subtitle">~ The Encyclopaedia of Campus AI Adoption ~</div>
+    <div style="color:#999; font-family:'VT323',monospace; font-size:16px;">
+      118 entries | Partnerships, Faculty Accounts, Humanities & Social Sciences, Tools & Platforms
+    </div>
+    <div class="marquee-bar">
+      <span class="marquee-content">
+        +++ WELCOME TO THE INFORMATION SUPERHIGHWAY +++ 118 ENTRIES CATALOGUED +++ OPENAI * ANTHROPIC * GOOGLE * MICROSOFT * META * HUGGING FACE * MISTRAL +++ OPEN WEIGHTS AND FRONTIER MODELS +++ HUMANITIES AND SOCIAL SCIENCES +++ SORTABLE & SEARCHABLE +++ BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 +++ LAST UPDATED APRIL 2026 +++
+      </span>
+    </div>
+  </header>
+
+  <!-- NAV TABS -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-tab active" data-tab="partnerships">
+      Partnerships & Initiatives
+      <span class="tab-count" id="count-partnerships"></span>
+    </div>
+    <div class="nav-tab" data-tab="faculty">
+      Faculty Blogs & Accounts
+      <span class="tab-count" id="count-faculty"></span>
+    </div>
+    <div class="nav-tab" data-tab="humanities">
+      Humanities & Social Sciences
+      <span class="tab-count" id="count-humanities"></span>
+    </div>
+    <div class="nav-tab" data-tab="tools">
+      Agentic AI Tools & Platforms
+      <span class="tab-count" id="count-tools"></span>
+    </div>
+  </nav>
+
+  <!-- CONTROLS -->
+  <div class="controls-bar">
+    <label for="searchInput">SEARCH:</label>
+    <input type="text" id="searchInput" class="search-box" placeholder="Type to filter rows...">
+    <label for="filterCategory">CATEGORY:</label>
+    <select id="filterCategory" class="filter-select">
+      <option value="">-- All Categories --</option>
+    </select>
+    <label for="filterOpenProp">TYPE:</label>
+    <select id="filterOpenProp" class="filter-select">
+      <option value="">-- All --</option>
+      <option value="open">Open Weights</option>
+      <option value="proprietary">Proprietary</option>
+      <option value="mixed">Mixed / Hybrid</option>
+    </select>
+    <span class="result-count" id="resultCount"></span>
+  </div>
+
+  <!-- TAB PANELS -->
+  <div class="tab-panel active" id="panel-partnerships"></div>
+  <div class="tab-panel" id="panel-faculty"></div>
+  <div class="tab-panel" id="panel-humanities"></div>
+  <div class="tab-panel" id="panel-tools"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div style="color:#666; font-size:18px;">- You are visitor number -</div>
+    <div class="hit-counter-wrap">
+      <div class="hit-counter" id="hit-counter"></div>
+    </div>
+    <div class="footer-links">
+      <a href="#">[ Home ]</a> | <a href="#">[ About ]</a> | <a href="#">[ Webring ]</a> | <a href="#">[ Guestbook ]</a>
+    </div>
+    <div class="construction-banner">!! ALWAYS UNDER CONSTRUCTION !!</div>
+    <div style="color:#444; font-size:14px; margin-top:12px;">
+      Made with love and <span style="color:#ff0000;">&lt;table&gt;</span> tags | April 2026<br>
+      Best viewed at 1024x768 or higher
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// ============================================================
+// DATA - embedded from JSON
+// ============================================================
+const DATA = {
+  partnerships: {
+    key: "Partnerships & Initiatives",
+    columns: ["Category","University / Institution","Initiative / Partnership","AI Company / Tool","Open or Proprietary","Scale / Scope","Hum/SocSci Focus","Date","Key People","Source URL","Notes"],
+    specialCols: { category: 0, url: 9, openProp: 4, humSocSci: 6 }
+  },
+  faculty: {
+    key: "Faculty Blogs & Accounts",
+    columns: ["Category","Author","Affiliation","Title","Discipline","AI Tools Mentioned","Key Points","Date","Source URL"],
+    specialCols: { category: 0, url: 8, openProp: -1, humSocSci: -1 }
+  },
+  humanities: {
+    key: "Humanities & Social Sciences",
+    columns: ["Category","University","Department / Center","Initiative","Discipline","AI Tools / Models","Key People","Date","Source URL","Notes"],
+    specialCols: { category: 0, url: 8, openProp: -1, humSocSci: -1 }
+  },
+  tools: {
+    key: "Agentic AI Tools & Platforms",
+    columns: ["Tool / Platform","Provider","Open or Proprietary","Universities Adopting","Agentic Capabilities","Hum/SocSci Use","Date","Source URL","Notes"],
+    specialCols: { category: -1, url: 7, openProp: 2, humSocSci: 5 }
+  }
+};
+
+let allData = {};
+let currentTab = 'partnerships';
+let sortState = {};
+
+// Load JSON
+fetch('Agentic_AI_University_Adoption_Research.json')
+  .then(r => r.json())
+  .then(json => {
+    for (const [tabKey, meta] of Object.entries(DATA)) {
+      const sheetData = json[meta.key] || [];
+      allData[tabKey] = sheetData.map(row => meta.columns.map(col => row[col] || ''));
+      sortState[tabKey] = { col: -1, asc: true };
+    }
+    initTabs();
+    renderCurrentTab();
+    updateCategoriesDropdown();
+    updateCounts();
+  })
+  .catch(() => {
+    // Fallback: data already embedded or error
+    document.querySelector('.page-wrapper').innerHTML += '<div class="no-results">ERROR: Could not load data file. Make sure Agentic_AI_University_Adoption_Research.json is in the same folder.</div>';
+  });
+
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+function initTabs() {
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      currentTab = tab.dataset.tab;
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + currentTab).classList.add('active');
+      updateCategoriesDropdown();
+      renderCurrentTab();
+    });
+  });
+}
+
+// ============================================================
+// RENDERING
+// ============================================================
+function renderCurrentTab() {
+  const meta = DATA[currentTab];
+  const rows = getFilteredRows();
+  const panel = document.getElementById('panel-' + currentTab);
+
+  let html = '<div class="table-wrapper"><table><thead><tr>';
+  meta.columns.forEach((col, i) => {
+    const ss = sortState[currentTab];
+    let cls = '';
+    let arrow = '\u25B2\u25BC';
+    if (ss && ss.col === i) {
+      cls = ss.asc ? 'sorted-asc' : 'sorted-desc';
+      arrow = ss.asc ? '\u25B2' : '\u25BC';
+    }
+    html += `<th class="${cls}" data-col="${i}">${col} <span class="sort-arrow">${arrow}</span></th>`;
+  });
+  html += '</tr></thead><tbody>';
+
+  if (rows.length === 0) {
+    html += `<tr><td colspan="${meta.columns.length}" class="no-results">No matching entries found.</td></tr>`;
+  } else {
+    rows.forEach(row => {
+      html += '<tr>';
+      row.forEach((cell, i) => {
+        html += renderCell(cell, i, meta);
+      });
+      html += '</tr>';
+    });
+  }
+
+  html += '</tbody></table></div>';
+  panel.innerHTML = html;
+
+  // Sort click handlers
+  panel.querySelectorAll('thead th').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = parseInt(th.dataset.col);
+      const ss = sortState[currentTab];
+      if (ss.col === col) { ss.asc = !ss.asc; }
+      else { ss.col = col; ss.asc = true; }
+      renderCurrentTab();
+    });
+  });
+
+  document.getElementById('resultCount').textContent = `[ ${rows.length} entries ]`;
+}
+
+function renderCell(value, colIndex, meta) {
+  if (!value) return '<td></td>';
+
+  // URL column
+  if (colIndex === meta.specialCols.url && value.startsWith('http')) {
+    const domain = new URL(value).hostname.replace('www.','');
+    return `<td class="cell-url"><a href="${escHtml(value)}" target="_blank" rel="noopener">${escHtml(domain)}</a></td>`;
+  }
+
+  // Category column
+  if (colIndex === meta.specialCols.category) {
+    return `<td class="cell-category">${escHtml(value)}</td>`;
+  }
+
+  // Open/Proprietary badge
+  if (colIndex === meta.specialCols.openProp) {
+    return `<td>${openPropBadge(value)}</td>`;
+  }
+
+  // Hum/SocSci badge
+  if (colIndex === meta.specialCols.humSocSci) {
+    return `<td>${humBadge(value)}</td>`;
+  }
+
+  return `<td>${escHtml(value)}</td>`;
+}
+
+function openPropBadge(val) {
+  const v = val.toLowerCase();
+  if (v.includes('open')) return `<span class="badge badge-open">${escHtml(val)}</span>`;
+  if (v.includes('mixed') || v.includes('hybrid')) return `<span class="badge badge-mixed">${escHtml(val)}</span>`;
+  return `<span class="badge badge-proprietary">${escHtml(val)}</span>`;
+}
+
+function humBadge(val) {
+  const v = val.toLowerCase();
+  if (v.startsWith('no')) return `<span class="badge badge-no">${escHtml(val)}</span>`;
+  if (v.startsWith('yes') || v.includes('all') || v.includes('cross') || v.includes('custom')) return `<span class="badge badge-yes">${escHtml(val)}</span>`;
+  if (v.includes('emerging') || v.includes('some') || v.includes('stem') || v.includes('mostly')) return `<span class="badge badge-mixed">${escHtml(val)}</span>`;
+  return `<td>${escHtml(val)}</td>`;
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ============================================================
+// FILTERING & SORTING
+// ============================================================
+function getFilteredRows() {
+  let rows = [...(allData[currentTab] || [])];
+  const meta = DATA[currentTab];
+  const search = document.getElementById('searchInput').value.toLowerCase().trim();
+  const catFilter = document.getElementById('filterCategory').value;
+  const openFilter = document.getElementById('filterOpenProp').value;
+
+  if (search) {
+    rows = rows.filter(r => r.some(c => c.toLowerCase().includes(search)));
+  }
+
+  if (catFilter) {
+    const catCol = meta.specialCols.category;
+    if (catCol >= 0) {
+      rows = rows.filter(r => r[catCol] === catFilter);
+    }
+  }
+
+  if (openFilter) {
+    const opCol = meta.specialCols.openProp;
+    if (opCol >= 0) {
+      rows = rows.filter(r => {
+        const v = r[opCol].toLowerCase();
+        if (openFilter === 'open') return v.includes('open');
+        if (openFilter === 'proprietary') return v === 'proprietary';
+        if (openFilter === 'mixed') return v.includes('mixed') || v.includes('hybrid');
+        return true;
+      });
+    }
+  }
+
+  const ss = sortState[currentTab];
+  if (ss && ss.col >= 0) {
+    rows.sort((a, b) => {
+      const va = a[ss.col].toLowerCase();
+      const vb = b[ss.col].toLowerCase();
+      if (va < vb) return ss.asc ? -1 : 1;
+      if (va > vb) return ss.asc ? 1 : -1;
+      return 0;
+    });
+  }
+
+  return rows;
+}
+
+function updateCategoriesDropdown() {
+  const meta = DATA[currentTab];
+  const catCol = meta.specialCols.category;
+  const select = document.getElementById('filterCategory');
+  select.innerHTML = '<option value="">-- All Categories --</option>';
+
+  if (catCol >= 0 && allData[currentTab]) {
+    const cats = [...new Set(allData[currentTab].map(r => r[catCol]).filter(Boolean))].sort();
+    cats.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      select.appendChild(opt);
+    });
+  }
+}
+
+function updateCounts() {
+  for (const [tabKey] of Object.entries(DATA)) {
+    const el = document.getElementById('count-' + tabKey);
+    if (el && allData[tabKey]) {
+      el.textContent = `[${allData[tabKey].length}]`;
+    }
+  }
+}
+
+// Event listeners for filters
+document.getElementById('searchInput').addEventListener('input', () => renderCurrentTab());
+document.getElementById('filterCategory').addEventListener('change', () => renderCurrentTab());
+document.getElementById('filterOpenProp').addEventListener('change', () => renderCurrentTab());
+
+// ============================================================
+// HIT COUNTER
+// ============================================================
+(function initHitCounter() {
+  const container = document.getElementById('hit-counter');
+  if (!container) return;
+  const count = 13842;
+  const digits = count.toString().padStart(6, '0').split('');
+  digits.forEach((digit, index) => {
+    const el = document.createElement('div');
+    el.className = 'counter-digit';
+    el.textContent = '0';
+    container.appendChild(el);
+    setTimeout(() => {
+      let current = 0;
+      const interval = setInterval(() => {
+        el.textContent = current;
+        current++;
+        if (current > parseInt(digit)) {
+          clearInterval(interval);
+          el.textContent = digit;
+        }
+      }, 40);
+    }, index * 80);
+  });
+})();
+
+// ============================================================
+// CURSOR TRAIL (desktop only)
+// ============================================================
+if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) && window.innerWidth > 768) {
+  const colors = ['#ff00ff','#00ffff','#ffff00','#00ff00','#ff6600','#6633ff'];
+  let lastTrail = 0;
+  document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastTrail < 40) return;
+    lastTrail = now;
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    trail.style.left = e.pageX + 'px';
+    trail.style.top = e.pageY + 'px';
+    trail.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random()*colors.length)]} 0%, transparent 70%)`;
+    document.body.appendChild(trail);
+    setTimeout(() => trail.remove(), 400);
+  });
+}
+</script>
+
+</body>
+</html>
