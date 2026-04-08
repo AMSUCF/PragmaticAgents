@@ -4,3 +4,6 @@
 TranscriptionTool/recordings/
 TranscriptionTool/transcripts/
 TranscriptionTool/__pycache__/
+
+# Local video files (too large for GitHub)
+videos/

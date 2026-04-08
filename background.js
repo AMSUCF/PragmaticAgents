@@ -10,6 +10,14 @@ let mode = 'console'; // 'console' or 'slideshow'
 const NUM_STARS = 200;
 const NUM_ASTEROIDS = 8;
 
+// === Spaceship ===
+let ship = { x: 0, y: 0, w: 28, h: 20, speed: 5, thrustFrame: 0 };
+let pellets = [];
+let explosions = [];
+let keys_held = {};
+let lastShotTime = 0;
+const SHOT_COOLDOWN = 200; // ms
+
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bg-canvas');
@@ -31,6 +39,10 @@ function setup() {
   for (let i = 0; i < NUM_ASTEROIDS; i++) {
     asteroids.push(createAsteroid());
   }
+
+  // Position ship at bottom center
+  ship.x = width / 2;
+  ship.y = height - 40;
 }
 
 function createAsteroid() {
@@ -44,7 +56,7 @@ function createAsteroid() {
     rotation: random(TWO_PI),
     rotSpeed: random(-0.01, 0.01),
     vertices: generateAsteroidShape(size),
-    opacity: random(30, 70)
+    opacity: random(80, 160)
   };
 }
 
@@ -71,6 +83,11 @@ function draw() {
 
 // === Console Mode: Space scene with stars, shooting stars, asteroids ===
 function drawConsoleBackground() {
+  // Update ship
+  updateShip();
+  updatePellets();
+  updateExplosions();
+
   // Draw stars with twinkling
   for (let star of stars) {
     star.twinkle += star.twinkleSpeed;
@@ -141,10 +158,10 @@ function drawConsoleBackground() {
     translate(a.x, a.y);
     rotate(a.rotation);
 
-    // Asteroid body
-    fill(40, 40, 80, a.opacity);
-    stroke(0, 255, 136, a.opacity * 0.4);
-    strokeWeight(1);
+    // Asteroid body - pink to stand out as targets
+    fill(180, 40, 120, a.opacity * 1.5);
+    stroke(255, 100, 200, a.opacity * 0.8);
+    strokeWeight(1.5);
     beginShape();
     for (let v of a.vertices) {
       vertex(v.x, v.y);
@@ -164,6 +181,15 @@ function drawConsoleBackground() {
     if (a.x > width + a.size) a.x = -a.size;
     if (a.x < -a.size * 2) a.x = width + a.size;
   }
+
+  // Draw pellets
+  drawPellets();
+
+  // Draw explosions
+  drawExplosions();
+
+  // Draw ship
+  drawShip();
 
   // Subtle scan lines over everything
   drawScanlines(0.03);
@@ -292,8 +318,182 @@ function drawVignette() {
   noStroke();
 }
 
+// === Ship Controls ===
+function updateShip() {
+  if (keys_held[LEFT_ARROW] || keys_held[65]) ship.x -= ship.speed;
+  if (keys_held[RIGHT_ARROW] || keys_held[68]) ship.x += ship.speed;
+  ship.x = constrain(ship.x, ship.w / 2, width - ship.w / 2);
+  ship.y = height - 40;
+  ship.thrustFrame++;
+}
+
+function drawShip() {
+  push();
+  translate(ship.x, ship.y);
+
+  // Engine glow
+  fill(0, 255, 136, 40 + sin(ship.thrustFrame * 0.3) * 20);
+  noStroke();
+  ellipse(0, 12, 14, 8);
+
+  // Thruster flame (flickers)
+  const flicker = 4 + sin(ship.thrustFrame * 0.5) * 3;
+  fill(0, 255, 136, 180);
+  triangle(-4, 10, 4, 10, 0, 10 + flicker);
+  fill(255, 255, 255, 120);
+  triangle(-2, 10, 2, 10, 0, 10 + flicker * 0.6);
+
+  // Ship body - classic arrow shape
+  fill(0, 255, 136);
+  stroke(0, 255, 136);
+  strokeWeight(1);
+  beginShape();
+  vertex(0, -ship.h / 2);       // nose
+  vertex(-ship.w / 2, ship.h / 2);  // bottom-left
+  vertex(-4, ship.h / 4);       // inner-left notch
+  vertex(0, ship.h / 3);        // center notch
+  vertex(4, ship.h / 4);        // inner-right notch
+  vertex(ship.w / 2, ship.h / 2);   // bottom-right
+  endShape(CLOSE);
+
+  // Cockpit highlight
+  fill(0, 204, 255, 150);
+  noStroke();
+  ellipse(0, -2, 6, 8);
+
+  pop();
+}
+
+// === Pellets ===
+function updatePellets() {
+  for (let i = pellets.length - 1; i >= 0; i--) {
+    pellets[i].y -= 8;
+    if (pellets[i].y < -10) {
+      pellets.splice(i, 1);
+      continue;
+    }
+
+    // Check collision with asteroids
+    for (let j = asteroids.length - 1; j >= 0; j--) {
+      const a = asteroids[j];
+      const d = dist(pellets[i].x, pellets[i].y, a.x, a.y);
+      if (d < a.size * 0.5) {
+        // Spawn explosion
+        spawnExplosion(a.x, a.y, a.size);
+        // Replace asteroid
+        asteroids[j] = createAsteroid();
+        asteroids[j].y = -asteroids[j].size;
+        asteroids[j].x = random(width);
+        // Remove pellet
+        pellets.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+function drawPellets() {
+  noStroke();
+  for (const p of pellets) {
+    // Glow
+    fill(0, 255, 136, 60);
+    ellipse(p.x, p.y, 8, 12);
+    // Core
+    fill(255, 255, 255);
+    rect(p.x - 1, p.y - 4, 2, 8);
+  }
+}
+
+function shootPellet() {
+  const now = millis();
+  if (now - lastShotTime < SHOT_COOLDOWN) return;
+  lastShotTime = now;
+  pellets.push({ x: ship.x, y: ship.y - ship.h / 2 });
+}
+
+// === Explosions ===
+function spawnExplosion(x, y, size) {
+  const numParticles = floor(random(12, 24));
+  const ex = { particles: [], flash: 1.0 };
+  for (let i = 0; i < numParticles; i++) {
+    const angle = random(TWO_PI);
+    const speed = random(1, 4);
+    const isGreen = random() > 0.3;
+    ex.particles.push({
+      x: x, y: y,
+      vx: cos(angle) * speed,
+      vy: sin(angle) * speed,
+      life: 1.0,
+      decay: random(0.015, 0.04),
+      size: random(2, size * 0.15),
+      color: isGreen ? [0, 255, 136] : [255, 200, 50]
+    });
+  }
+  explosions.push(ex);
+}
+
+function updateExplosions() {
+  for (let i = explosions.length - 1; i >= 0; i--) {
+    const ex = explosions[i];
+    ex.flash *= 0.85;
+    let alive = false;
+    for (let j = ex.particles.length - 1; j >= 0; j--) {
+      const p = ex.particles[j];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.03; // slight gravity
+      p.life -= p.decay;
+      if (p.life <= 0) {
+        ex.particles.splice(j, 1);
+      } else {
+        alive = true;
+      }
+    }
+    if (!alive) explosions.splice(i, 1);
+  }
+}
+
+function drawExplosions() {
+  noStroke();
+  for (const ex of explosions) {
+    // White flash
+    if (ex.flash > 0.1) {
+      fill(255, 255, 255, ex.flash * 80);
+      const flashSize = ex.flash * 60;
+      if (ex.particles.length > 0) {
+        ellipse(ex.particles[0].x, ex.particles[0].y, flashSize, flashSize);
+      }
+    }
+    for (const p of ex.particles) {
+      fill(p.color[0], p.color[1], p.color[2], p.life * 255);
+      ellipse(p.x, p.y, p.size, p.size);
+      // Trail
+      fill(p.color[0], p.color[1], p.color[2], p.life * 80);
+      ellipse(p.x - p.vx, p.y - p.vy, p.size * 0.6, p.size * 0.6);
+    }
+  }
+}
+
+// === Input Handling ===
+function keyPressed() {
+  keys_held[keyCode] = true;
+  // Space to shoot (only in console mode, and not when modals/slideshow active)
+  if (keyCode === 32 && mode === 'console') {
+    const modalsOpen = document.querySelector('.modal-backdrop.active');
+    const slideshowOpen = document.getElementById('slideshow').classList.contains('active');
+    if (!modalsOpen && !slideshowOpen) {
+      shootPellet();
+    }
+  }
+}
+
+function keyReleased() {
+  keys_held[keyCode] = false;
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  ship.x = constrain(ship.x, ship.w / 2, width - ship.w / 2);
 }
 
 // === Mode switching (called from script.js) ===

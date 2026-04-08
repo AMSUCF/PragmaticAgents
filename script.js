@@ -1,3 +1,35 @@
+// === Local Video Detection ===
+// When running on localhost or file://, swap YouTube iframes for local video files
+(function() {
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+  if (!isLocal) return;
+
+  document.querySelectorAll('.video-wrapper[data-local]').forEach(wrapper => {
+    const localSrc = wrapper.dataset.local;
+    const iframe = wrapper.querySelector('iframe');
+    if (!iframe) return;
+
+    const video = document.createElement('video');
+    video.src = localSrc;
+    video.controls = true;
+    video.preload = 'metadata';
+    video.style.width = '100%';
+    video.style.height = '100%';
+    iframe.replaceWith(video);
+  });
+})();
+
+// === Prevent arrow/space scrolling when on console (for spaceship controls) ===
+window.addEventListener('keydown', (e) => {
+  if ([32, 37, 38, 39, 40].includes(e.keyCode)) {
+    const modalsOpen = document.querySelector('.modal-backdrop.active');
+    const slideshowOpen = document.getElementById('slideshow').classList.contains('active');
+    if (!modalsOpen && !slideshowOpen) {
+      e.preventDefault();
+    }
+  }
+});
+
 // === Modal System ===
 function openModal(id) {
   const backdrop = document.getElementById(id);
