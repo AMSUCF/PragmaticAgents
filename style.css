@@ -356,7 +356,7 @@ html, body {
 
 .slide-text {
   font-family: var(--font-body);
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   line-height: 1.5;
   color: var(--text-white);
   margin-top: 0.75rem;
@@ -365,19 +365,58 @@ html, body {
   flex-shrink: 0;
 }
 
+.slide-figure {
+  order: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .slide-image {
   max-width: 100%;
   flex: 1 1 auto;
   min-height: 0;
   object-fit: contain;
   border: 1px solid rgba(0, 255, 136, 0.3);
-  order: 1;
   /* Scanline reveal animation applied via JS */
   clip-path: inset(0 0 100% 0);
 }
 
 .slide-image.revealed {
   animation: scanReveal 1s ease-out forwards;
+}
+
+.slide-caption {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+
+.slide-caption a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.slide-caption a:hover {
+  color: var(--accent-green);
+}
+
+.slide-text a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: text-shadow 0.3s;
+}
+
+.slide-text a:hover {
+  text-shadow: 0 0 8px var(--accent-cyan);
 }
 
 @keyframes scanReveal {
