@@ -5,17 +5,17 @@ Math Blaster inspired landing page, "Pragmatic Agentic AI in Digital Humanities"
 Section one: merge the cleaned transcript (preserve all quotes as-is and my wording as much as feasible, but shorten) with the images in materials to create the "game intro" section, which should act as a set of slides controlled by arrow keys and move through that overview, then return to the landing page. 
 
 Level One: Cowork
-- CoworkChapter (https://youtu.be/fIAvgI2FxZA)
-- CoworkFAR (https://youtu.be/276aI267V7U)
-- CoworkAIResearch (https://youtu.be/8iTH_-pgS_Q)
+- Revision Planning (https://youtu.be/fIAvgI2FxZA)
+- Completing Documentation (https://youtu.be/276aI267V7U)
+- Web Research and Tools (https://youtu.be/8iTH_-pgS_Q)
 
 Level Two: Claude Code CLI
-- CodeTranscription (https://youtu.be/XywaSW94IQ4)
-- CodeWebcourses (placeholder, video coming)
-- CodePresentation (placeholder, video coming)
+- Local Transcription (https://youtu.be/XywaSW94IQ4)
+- Webcourses Content (https://github.com/AMSUCF/InterdisciplinaryTeaching/blob/main/README.md)
+- Building Presentations (placeholder, video coming)
 
 Level Three: Ollama
-- LocalCode (https://youtu.be/37XWlkI-Uyo)
+- Working with Local Models (https://youtu.be/37XWlkI-Uyo)
 
 Further Reading
 (sources from transcript)
