@@ -18,9 +18,9 @@
     <p class="console-subtitle">A guided tour through agentic tools for humanities scholars</p>
     <ul class="console-menu">
       <li data-action="start"><span class="menu-arrow">&#9654;</span> BACKSTORY</li>
-      <li data-action="modal" data-target="level1"><span class="menu-arrow">&#9654;</span> LEVEL 1: COWORK</li>
-      <li data-action="modal" data-target="level2"><span class="menu-arrow">&#9654;</span> LEVEL 2: CLAUDE CODE CLI</li>
-      <li data-action="modal" data-target="level3"><span class="menu-arrow">&#9654;</span> LEVEL 3: OLLAMA</li>
+      <li data-action="modal" data-target="world1"><span class="menu-arrow">&#9654;</span> WORLD 1: COWORK</li>
+      <li data-action="modal" data-target="world2"><span class="menu-arrow">&#9654;</span> WORLD 2: CLAUDE CODE CLI</li>
+      <li data-action="modal" data-target="world3"><span class="menu-arrow">&#9654;</span> WORLD 3: OLLAMA</li>
       <li data-action="modal" data-target="reading"><span class="menu-arrow">&#9654;</span> FURTHER READING</li>
     </ul>
   </div>
@@ -115,71 +115,89 @@
     <div class="slide-counter" id="slideCounter"></div>
   </div>
 
-  <!-- Level 1 Modal: Cowork -->
-  <div class="modal-backdrop" id="level1">
-    <div class="modal" onclick="event.stopPropagation()">
+  <!-- World 1 Modal: Cowork -->
+  <div class="modal-backdrop" id="world1">
+    <div class="modal modal-world" onclick="event.stopPropagation()">
       <button class="modal-close" data-close>ESC</button>
-      <h2 class="modal-title">LEVEL 1: COWORK</h2>
+      <h2 class="modal-title">WORLD 1: COWORK</h2>
       <a href="https://claude.ai" target="_blank" rel="noopener" class="getting-started">&#9733; GETTING STARTED: CLAUDE.AI</a>
-      <div class="video-item">
-        <div class="video-label">REVISION PLANNING</div>
-        <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/fIAvgI2FxZA" data-local="videos/CoworkChapter.mp4">
-          <iframe src="https://www.youtube.com/embed/fIAvgI2FxZA" title="Revision Planning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="level-selector">
+        <button class="level-btn active" data-level="0" onclick="switchLevel(this)">&#9654; LEVEL 1: REVISION PLANNING</button>
+        <button class="level-btn" data-level="1" onclick="switchLevel(this)">&#9654; LEVEL 2: COMPLETING DOCUMENTATION</button>
+        <button class="level-btn" data-level="2" onclick="switchLevel(this)">&#9654; LEVEL 3: WEB RESEARCH AND TOOLS</button>
+      </div>
+      <div class="level-content active" data-level="0">
+        <div class="video-item">
+          <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/fIAvgI2FxZA" data-local="videos/CoworkChapter.mp4">
+            <iframe src="https://www.youtube.com/embed/fIAvgI2FxZA" title="Revision Planning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </div>
       </div>
-      <div class="video-item">
-        <div class="video-label">COMPLETING DOCUMENTATION</div>
-        <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/276aI267V7U" data-local="videos/CoworkFAR.mp4">
-          <iframe src="https://www.youtube.com/embed/276aI267V7U" title="Completing Documentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="level-content" data-level="1">
+        <div class="video-item">
+          <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/276aI267V7U" data-local="videos/CoworkFAR.mp4">
+            <iframe src="https://www.youtube.com/embed/276aI267V7U" title="Completing Documentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </div>
       </div>
-      <div class="video-item">
-        <div class="video-label">WEB RESEARCH AND TOOLS</div>
-        <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/8iTH_-pgS_Q" data-local="videos/CoworkAIResearch.mp4">
-          <iframe src="https://www.youtube.com/embed/8iTH_-pgS_Q" title="Web Research and Tools" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="level-content" data-level="2">
+        <div class="video-item">
+          <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/8iTH_-pgS_Q" data-local="videos/CoworkAIResearch.mp4">
+            <iframe src="https://www.youtube.com/embed/8iTH_-pgS_Q" title="Web Research and Tools" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </div>
+        <a href="AgenticAIResearch/agentic-ai-university-directory.html" class="game-item">&#9733; AGENTIC AI RESEARCH &mdash; University Directory</a>
       </div>
-      <a href="AgenticAIResearch/agentic-ai-university-directory.html" class="game-item">&#9733; AGENTIC AI RESEARCH &mdash; University Directory</a>
     </div>
   </div>
 
-  <!-- Level 2 Modal: Claude Code CLI -->
-  <div class="modal-backdrop" id="level2">
-    <div class="modal" onclick="event.stopPropagation()">
+  <!-- World 2 Modal: Claude Code CLI -->
+  <div class="modal-backdrop" id="world2">
+    <div class="modal modal-world" onclick="event.stopPropagation()">
       <button class="modal-close" data-close>ESC</button>
-      <h2 class="modal-title">LEVEL 2: CLAUDE CODE CLI</h2>
+      <h2 class="modal-title">WORLD 2: CLAUDE CODE CLI</h2>
       <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener" class="getting-started">&#9733; GETTING STARTED: INSTALL CLAUDE CODE</a>
-      <div class="video-item">
-        <div class="video-label">LOCAL TRANSCRIPTION</div>
-        <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/XywaSW94IQ4" data-local="videos/CodeCLITranscription.mp4">
-          <iframe src="https://www.youtube.com/embed/XywaSW94IQ4" title="Local Transcription" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div class="level-selector">
+        <button class="level-btn active" data-level="0" onclick="switchLevel(this)">&#9654; LEVEL 1: LOCAL TRANSCRIPTION</button>
+        <button class="level-btn" data-level="1" onclick="switchLevel(this)">&#9654; LEVEL 2: BUILDING PRESENTATIONS</button>
       </div>
-      <a href="TranscriptionTool/index.html" class="game-item">&#9733; TRANSCRIPTION TOOL &mdash; Project Overview</a>
-      <a href="https://github.com/AMSUCF/InterdisciplinaryTeaching/blob/main/README.md" target="_blank" rel="noopener" class="game-item">&#9733; WEBCOURSES CONTENT &mdash; View on GitHub</a>
-      <div class="video-item">
-        <div class="video-label">BUILDING PRESENTATIONS</div>
-        <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/suh9Hg9c1Tk" data-local="videos/CodePresentation.mp4">
-          <iframe src="https://www.youtube.com/embed/suh9Hg9c1Tk" title="Building Presentations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="level-content active" data-level="0">
+        <div class="video-item">
+          <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/XywaSW94IQ4" data-local="videos/CodeCLITranscription.mp4">
+            <iframe src="https://www.youtube.com/embed/XywaSW94IQ4" title="Local Transcription" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
         </div>
+        <a href="TranscriptionTool/index.html" class="game-item">&#9733; TRANSCRIPTION TOOL &mdash; Project Overview</a>
+      </div>
+      <div class="level-content" data-level="1">
+        <div class="video-item">
+          <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/suh9Hg9c1Tk" data-local="videos/CodePresentation.mp4">
+            <iframe src="https://www.youtube.com/embed/suh9Hg9c1Tk" title="Building Presentations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <a href="https://github.com/AMSUCF/InterdisciplinaryTeaching/blob/main/README.md" target="_blank" rel="noopener" class="game-item">&#9733; WEBCOURSES CONTENT &mdash; View on GitHub</a>
       </div>
     </div>
   </div>
 
-  <!-- Level 3 Modal: Ollama -->
-  <div class="modal-backdrop" id="level3">
-    <div class="modal" onclick="event.stopPropagation()">
+  <!-- World 3 Modal: Ollama -->
+  <div class="modal-backdrop" id="world3">
+    <div class="modal modal-world" onclick="event.stopPropagation()">
       <button class="modal-close" data-close>ESC</button>
-      <h2 class="modal-title">LEVEL 3: OLLAMA</h2>
+      <h2 class="modal-title">WORLD 3: OLLAMA</h2>
       <a href="https://ollama.com" target="_blank" rel="noopener" class="getting-started">&#9733; GETTING STARTED: OLLAMA.COM</a>
       <a href="https://ollama.com/library/devstral-small" target="_blank" rel="noopener" class="getting-started" style="margin-left: 0.5rem;">&#9733; MODEL: DEVSTRAL SMALL 2</a>
-      <div class="video-item">
-        <div class="video-label">WORKING WITH LOCAL MODELS</div>
-        <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/37XWlkI-Uyo" data-local="videos/LocalCode.mp4">
-          <iframe src="https://www.youtube.com/embed/37XWlkI-Uyo" title="Working with Local Models" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div class="level-selector">
+        <button class="level-btn active" data-level="0" onclick="switchLevel(this)">&#9654; LEVEL 1: WORKING WITH LOCAL MODELS</button>
       </div>
-      <a href="LocalCode/resume-site/index.html" class="game-item">&#9733; LOCAL CODE &mdash; Resume Site Example</a>
+      <div class="level-content active" data-level="0">
+        <div class="video-item">
+          <div class="video-wrapper" data-youtube="https://www.youtube.com/embed/37XWlkI-Uyo" data-local="videos/LocalCode.mp4">
+            <iframe src="https://www.youtube.com/embed/37XWlkI-Uyo" title="Working with Local Models" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <a href="LocalCode/resume-site/index.html" class="game-item">&#9733; LOCAL CODE &mdash; Resume Site Example</a>
+      </div>
     </div>
   </div>
 

@@ -11,7 +11,7 @@ const NUM_STARS = 200;
 const NUM_ASTEROIDS = 8;
 
 // === Spaceship ===
-let ship = { x: 0, y: 0, w: 28, h: 20, speed: 5, thrustFrame: 0 };
+let ship = { x: 0, y: 0, w: 28, h: 20, speed: 5, thrustFrame: 0, hitTimer: 0, shakeX: 0, shakeY: 0 };
 let pellets = [];
 let explosions = [];
 let keys_held = {};
@@ -153,7 +153,8 @@ function drawConsoleBackground() {
   }
 
   // Floating asteroids
-  for (let a of asteroids) {
+  for (let i = 0; i < asteroids.length; i++) {
+    const a = asteroids[i];
     push();
     translate(a.x, a.y);
     rotate(a.rotation);
@@ -174,6 +175,18 @@ function drawConsoleBackground() {
     a.x += a.speedX;
     a.y += a.speedY;
     a.rotation += a.rotSpeed;
+
+    // Check collision with ship
+    const dShip = dist(a.x, a.y, ship.x, ship.y);
+    if (dShip < a.size * 0.4 + ship.w * 0.4) {
+      ship.hitTimer = 30;
+      spawnExplosion(a.x, a.y, a.size * 0.6);
+      const replacement = createAsteroid();
+      replacement.y = -replacement.size;
+      replacement.x = random(width);
+      asteroids[i] = replacement;
+      continue;
+    }
 
     // Wrap around
     if (a.y > height + a.size) a.y = -a.size;
@@ -325,11 +338,29 @@ function updateShip() {
   ship.x = constrain(ship.x, ship.w / 2, width - ship.w / 2);
   ship.y = height - 40;
   ship.thrustFrame++;
+
+  // Damage shake
+  if (ship.hitTimer > 0) {
+    ship.hitTimer--;
+    ship.shakeX = random(-3, 3);
+    ship.shakeY = random(-2, 2);
+  } else {
+    ship.shakeX = 0;
+    ship.shakeY = 0;
+  }
 }
 
 function drawShip() {
   push();
-  translate(ship.x, ship.y);
+  translate(ship.x + ship.shakeX, ship.y + ship.shakeY);
+
+  // Damage flash — red glow around ship
+  if (ship.hitTimer > 0) {
+    const flashAlpha = map(ship.hitTimer, 0, 30, 0, 180);
+    fill(255, 50, 50, flashAlpha);
+    noStroke();
+    ellipse(0, 0, ship.w * 2, ship.h * 2);
+  }
 
   // Engine glow
   fill(0, 255, 136, 40 + sin(ship.thrustFrame * 0.3) * 20);
@@ -343,9 +374,15 @@ function drawShip() {
   fill(255, 255, 255, 120);
   triangle(-2, 10, 2, 10, 0, 10 + flicker * 0.6);
 
-  // Ship body - classic arrow shape
-  fill(0, 255, 136);
-  stroke(0, 255, 136);
+  // Ship body — flash red/white when hit, otherwise green
+  const hitFlash = ship.hitTimer > 0 && (ship.hitTimer % 4 < 2);
+  if (hitFlash) {
+    fill(255, 80, 80);
+    stroke(255, 80, 80);
+  } else {
+    fill(0, 255, 136);
+    stroke(0, 255, 136);
+  }
   strokeWeight(1);
   beginShape();
   vertex(0, -ship.h / 2);       // nose

@@ -34,6 +34,21 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
+// === Level Selector (within world modals) ===
+function switchLevel(btn) {
+  event.stopPropagation();
+  const modal = btn.closest('.modal');
+  const level = btn.dataset.level;
+
+  // Update active button
+  modal.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Update active content
+  modal.querySelectorAll('.level-content').forEach(c => c.classList.remove('active'));
+  modal.querySelector('.level-content[data-level="' + level + '"]').classList.add('active');
+}
+
 // === Modal System ===
 function openModal(id) {
   const backdrop = document.getElementById(id);

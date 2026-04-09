@@ -139,6 +139,7 @@ html, body {
   max-width: 900px;
   max-height: 85vh;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 2rem;
   position: relative;
 }
@@ -188,6 +189,52 @@ html, body {
 .getting-started:hover {
   background: rgba(0, 204, 255, 0.1);
   text-shadow: 0 0 10px var(--accent-cyan);
+}
+
+
+/* Level selector tabs */
+.level-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.level-btn {
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  color: var(--text-white);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+  text-align: left;
+  width: 100%;
+}
+
+.level-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.level-btn.active {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  background: rgba(0, 255, 136, 0.08);
+  text-shadow: 0 0 10px var(--accent-green);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.15);
+}
+
+/* Level content panels */
+.level-content {
+  display: none;
+}
+
+.level-content.active {
+  display: block;
 }
 
 /* Video embed */
