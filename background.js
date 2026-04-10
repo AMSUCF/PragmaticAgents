@@ -18,6 +18,15 @@ let keys_held = {};
 let lastShotTime = 0;
 const SHOT_COOLDOWN = 200; // ms
 
+// === Touch Controls ===
+let touchStartX = null;
+let touchStartY = null;
+let touchStartTime = 0;
+let touchShipStartX = 0;
+let isTouchMoving = false;
+const TAP_THRESHOLD = 15;   // px — movement under this counts as a tap
+const TAP_TIME_LIMIT = 300; // ms — taps must be shorter than this
+
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bg-canvas');
@@ -526,6 +535,58 @@ function keyPressed() {
 
 function keyReleased() {
   keys_held[keyCode] = false;
+}
+
+// === Touch Input Handling ===
+function touchStarted() {
+  if (mode !== 'console') return true;
+  const modalsOpen = document.querySelector('.modal-backdrop.active');
+  const slideshowOpen = document.getElementById('slideshow').classList.contains('active');
+  if (modalsOpen || slideshowOpen) return true;
+
+  if (touches.length > 0) {
+    touchStartX = touches[0].x;
+    touchStartY = touches[0].y;
+    touchStartTime = millis();
+    touchShipStartX = ship.x;
+    isTouchMoving = false;
+  }
+  return false; // prevent default
+}
+
+function touchMoved() {
+  if (mode !== 'console' || touchStartX === null) return true;
+  const modalsOpen = document.querySelector('.modal-backdrop.active');
+  const slideshowOpen = document.getElementById('slideshow').classList.contains('active');
+  if (modalsOpen || slideshowOpen) return true;
+
+  if (touches.length > 0) {
+    const dx = touches[0].x - touchStartX;
+    if (abs(dx) > TAP_THRESHOLD) {
+      isTouchMoving = true;
+    }
+    // Move ship relative to swipe distance
+    ship.x = constrain(touchShipStartX + dx, ship.w / 2, width - ship.w / 2);
+  }
+  return false; // prevent default (no scrolling)
+}
+
+function touchEnded() {
+  if (mode !== 'console' || touchStartX === null) {
+    touchStartX = null;
+    return true;
+  }
+
+  const elapsed = millis() - touchStartTime;
+  // If it was a quick tap without much movement, shoot
+  if (!isTouchMoving && elapsed < TAP_TIME_LIMIT) {
+    shootPellet();
+  }
+
+  touchStartX = null;
+  touchStartY = null;
+  isTouchMoving = false;
+  return false;
 }
 
 function windowResized() {
